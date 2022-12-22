@@ -1,0 +1,58 @@
+/* header section */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  background: var(--clr-primary-0);
+  background-image: url('../../Images/hero4.png');
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.myreact-icons {
+  height: 2em;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-basis: auto;
+}
+.navbar li {
+  padding: 0 0.5rem;
+}
+
+.navbar li a {
+  font-size: 1em;
+  font-weight: 500;
+  color: #1a1a1a;
+  transition: 0.3s ease;
+}
+.navbar li a:hover,
+.navbar li a.active {
+  color: var(--clr-green-light);
+}
+.mobile {
+  display: none;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-right ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.close {
+  opacity: 0;
+}
+
+.icon-link {
+  font-size: 2rem;
+}
+/* Media Queries */

@@ -1,0 +1,21 @@
+.section {
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  margin-top: 2rem;
+}
+.about-text {
+  line-height: 2;
+  max-width: 45em;
+  margin: 0 auto;
+  margin-top: 4rem;
+  font-weight: 500;
+}
+
+.about-page .title .title-slash {
+  color: var(--clr-primary-5);
+  font-weight: 400;
+}
