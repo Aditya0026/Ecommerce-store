@@ -3,7 +3,7 @@ body {
 }
 
 .hero1 {
-  background-image: url(../../Images/banner/b1.jpg);
+  background-image: url('https://res.cloudinary.com/ddlpde95c/image/upload/v1671710671/b1_fr6fy3.jpg');
   width: 100%;
   height: 40vh;
   background-size: cover;

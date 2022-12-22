@@ -7,7 +7,7 @@
 
 /* hero section */
 .hero {
-  background-image: url(../../Images/hero4.png);
+  background-image: url('https://res.cloudinary.com/ddlpde95c/image/upload/v1671710229/hero4_oyc7j9.png');
   height: 90vh;
   width: 100%;
   background-position: top 25% right 0;
@@ -144,7 +144,7 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  background-image: url(../../Images/banner/b2.jpg);
+  background-image: url('https://res.cloudinary.com/ddlpde95c/image/upload/v1671711097/b2_uuynbx.jpg');
   width: 100%;
   background-size: cover;
   height: 40vh;
@@ -191,7 +191,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  background-image: url('../../Images/banner/b17.jpg');
+  background-image: url('https://res.cloudinary.com/ddlpde95c/image/upload/v1671710562/b17_nolgxi.jpg');
   min-width: 580px;
   height: 50vh;
   background-position: center;
@@ -227,7 +227,7 @@
   transition: 0.2s;
 }
 .banner2 {
-  background-image: url(../../Images/banner/b10.jpg);
+  background-image: url('https://res.cloudinary.com/ddlpde95c/image/upload/v1671710600/b10_l4y5va.jpg');
 }
 .btn:hover {
   background-color: #088178;
