@@ -1,90 +1,101 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { FiX } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+import { Counter } from './sub-components/Counter';
 import { useCloseOnClickOutside } from '../../CustomHooks/CustomHooks';
+import './cart.css';
 import {
   useCartContext,
   useDeleteFromCart,
   useUpdateCart,
 } from '../../Context/CartContext';
+import { useAuthContext } from '../../Context/AuthContext';
+import {
+  useAddToWishlist,
+  useWishlistContext,
+} from '../../Context/WishlistContext';
+import {
+  cartTotalPrice,
+  formatPrice,
+  isPresentInState,
+} from '../../Utils/utils';
 
 export const Cart = ({ toggleCartModal, setToggleCartModal }) => {
+  console.log(toggleCartModal, setToggleCartModal);
   const cartRef = React.useRef(null);
-  <>
-    <aside className={`cart-overlay ${toggleCartModal ? 'show' : ''}`}>
-      <aside ref={cartRef} className="cart">
-        <button
-          aria-label="close-icon"
-          onClick={() => setToggleCartModal(!toggleCartModal)}
-          type="submit"
-          className="cart-close"
-        >
-          <FiX />
-        </button>
-        <h3 className="text-slanted center">Your Bag</h3>
-        {user.id ? (
-          <div className="cart-items">
-            {cart?.length > 0 &&
-              cart?.map((product) => (
-                <article
-                  key={product._id}
-                  className="cart-item"
-                  data-id={product._id}
-                >
-                  <img
-                    src={product.imgUrl}
-                    className="cart-item-img"
-                    alt="high-back bench"
-                  />
-                  <div>
-                    <h4 className="cart-item-name">{product.productTitle}</h4>
-                    <p className="cart-item-price">₹{product.productPrice}</p>
-                    <button
-                      aria-label="remove-from-cart-icon"
-                      onClick={() =>
-                        removeFromCart(product._id, {
-                          onSuccess: ({ data: { cart: cartData } }) => {
-                            toast.success('removed from cart', {
-                              position: 'top-left',
-                            });
-                            setCart(cartData);
-                          },
-                          onError: (error) => {
-                            toast.error(error.message, {
-                              position: 'top-left',
-                            });
-                          },
-                        })
-                      }
-                      type="submit"
-                      className="cart-item-remove-btn"
-                      data-id={product.id}
-                    >
-                      Remove
-                    </button>
-                    <button
-                      aria-label="add-cart-icon"
-                      onClick={() => {
-                        removeFromCart(product._id, {
-                          onSuccess: ({ data: { cart: cartData } }) => {
-                            setCart(cartData);
-                          },
-                          onError: (error) => {
-                            toast.error(error.message, {
-                              position: 'top-left',
-                            });
-                          },
-                        });
-                        if (!isPresentInState(product, wishlist)) {
-                          addToWishlist(product, {
-                            onSuccess: ({
-                              data: { wishlist: wishListData },
-                            }) => {
-                              toast.success('added to wishlist', {
+  const { cart, setCart } = useCartContext();
+  const navigate = useNavigate();
+  const [wishlist, setWishlist] = useWishlistContext();
+  const { user } = useAuthContext();
+
+  const { mutate: removeFromCart, isLoading: isRemovingCart } =
+    useDeleteFromCart();
+  const { mutate: addToWishlist } = useAddToWishlist();
+
+  const { mutate: changeQuantityCart } = useUpdateCart();
+
+  //   const { displayRazorpay } = usePaymentIntegration();
+  useCloseOnClickOutside(cartRef, setToggleCartModal);
+  return (
+    <>
+      <aside className={`cart-overlay ${toggleCartModal ? 'show' : ''}`}>
+        <aside ref={cartRef} className="cart">
+          <button
+            aria-label="close-icon"
+            onClick={() => setToggleCartModal(!toggleCartModal)}
+            type="submit"
+            className="cart-close"
+          >
+            <FiX />
+          </button>
+          <h3 className="text-slanted center">Your Bag</h3>
+          {user.id ? (
+            <div className="cart-items">
+              {cart?.length > 0 &&
+                cart?.map((product) => (
+                  <article
+                    key={product._id}
+                    className="cart-item"
+                    data-id={product._id}
+                  >
+                    <img
+                      src={product.imgUrl}
+                      className="cart-item-img"
+                      alt="high-back bench"
+                    />
+                    <div>
+                      <h4 className="cart-item-name">{product.productTitle}</h4>
+                      <p className="cart-item-price">₹{product.productPrice}</p>
+                      <button
+                        aria-label="remove-from-cart-icon"
+                        onClick={() =>
+                          removeFromCart(product._id, {
+                            onSuccess: ({ data: { cart: cartData } }) => {
+                              toast.success('removed from cart', {
                                 position: 'top-left',
                               });
-                              setWishlist(wishListData);
+                              setCart(cartData);
+                            },
+                            onError: (error) => {
+                              toast.error(error.message, {
+                                position: 'top-left',
+                              });
+                            },
+                          })
+                        }
+                        type="submit"
+                        className="cart-item-remove-btn"
+                        data-id={product.id}
+                      >
+                        Remove
+                      </button>
+                      <button
+                        aria-label="add-cart-icon"
+                        onClick={() => {
+                          removeFromCart(product._id, {
+                            onSuccess: ({ data: { cart: cartData } }) => {
+                              setCart(cartData);
                             },
                             onError: (error) => {
                               toast.error(error.message, {
@@ -92,80 +103,97 @@ export const Cart = ({ toggleCartModal, setToggleCartModal }) => {
                               });
                             },
                           });
-                        } else {
-                          toast.info('Already in Wishlist', {
-                            position: 'top-left',
-                          });
-                        }
-                      }}
-                      type="submit"
-                      className="m-left-small cart-item-remove-btn"
-                      data-id={product.id}
-                    >
-                      Wishlist
-                    </button>
-                  </div>
-                  <div className="">
-                    <Counter
-                      product={product}
-                      setCart={setCart}
-                      changeQuantityCart={changeQuantityCart}
-                      removeFromCart={removeFromCart}
-                    />
-                  </div>
-                </article>
-              ))}
-            {cart?.length === 0 && (
-              <div className="flex flex-column">
-                <p className="center" style={{ marginTop: '4rem' }}>
-                  Add some products to the cart
-                </p>
+                          if (!isPresentInState(product, wishlist)) {
+                            addToWishlist(product, {
+                              onSuccess: ({
+                                data: { wishlist: wishListData },
+                              }) => {
+                                toast.success('added to wishlist', {
+                                  position: 'top-left',
+                                });
+                                setWishlist(wishListData);
+                              },
+                              onError: (error) => {
+                                toast.error(error.message, {
+                                  position: 'top-left',
+                                });
+                              },
+                            });
+                          } else {
+                            toast.info('Already in Wishlist', {
+                              position: 'top-left',
+                            });
+                          }
+                        }}
+                        type="submit"
+                        className="m-left-small cart-item-remove-btn"
+                        data-id={product.id}
+                      >
+                        Wishlist
+                      </button>
+                    </div>
+                    <div className="">
+                      <Counter
+                        product={product}
+                        setCart={setCart}
+                        changeQuantityCart={changeQuantityCart}
+                        removeFromCart={removeFromCart}
+                      />
+                    </div>
+                  </article>
+                ))}
+              {cart?.length === 0 && (
+                <div className="flex flex-column">
+                  <p className="center" style={{ marginTop: '4rem' }}>
+                    Add some products to the cart
+                  </p>
+                  <button
+                    aria-label="go-to-products"
+                    onClick={() => {
+                      setToggleCartModal((prev) => !prev);
+                      navigate('/products');
+                    }}
+                    type="button"
+                    className="btn btn-squared  m-top-medium"
+                  >
+                    Products
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div style={{ display: 'grid', placeItems: 'center' }}>
+              <Link to="/login">
                 <button
-                  aria-label="go-to-products"
-                  onClick={() => {
-                    setToggleCartModal((prev) => !prev);
-                    navigate('/products');
-                  }}
+                  aria-label="log-in-redirect"
+                  className="btn btn-squared"
                   type="button"
-                  className="btn btn-squared  m-top-medium"
+                  onClick={() => setToggleCartModal((prev) => !prev)}
                 >
-                  Products
+                  <h3>PLEASE LOG IN FIRST</h3>
                 </button>
-              </div>
-            )}
-          </div>
-        ) : (
-          <div style={{ display: 'grid', placeItems: 'center' }}>
-            <Link to="/login">
+              </Link>
+            </div>
+          )}
+          {user.id && cart?.length ? (
+            <footer>
+              <h3 className="cart-total text-slanted">
+                total: {cart && formatPrice(cartTotalPrice(cart))}
+              </h3>
               <button
-                aria-label="log-in-redirect"
-                className="btn btn-squared"
-                type="button"
-                onClick={() => setToggleCartModal((prev) => !prev)}
+                aria-label="checkout"
+                onClick={() => {
+                  // displayRazorpay();
+                }}
+                type="submit"
+                className="cart-checkout btn btn-squared "
               >
-                <h3>PLEASE LOG IN FIRST</h3>
+                checkout
               </button>
-            </Link>
-          </div>
-        )}
-        {user.id && cart?.length ? (
-          <footer>
-            <h3 className="cart-total text-slanted">
-              total: {cart && formatPrice(cartTotalPrice(cart))}
-            </h3>
-            <button
-              aria-label="checkout"
-              onClick={() => {
-                displayRazorpay();
-              }}
-              type="submit"
-              className="cart-checkout btn btn-squared "
-            >
-              checkout
-            </button>
-          </footer>
-        ) : null}
+            </footer>
+          ) : null}
+        </aside>
       </aside>
-    </aside>
-  </>;
+    </>
+  );
 };

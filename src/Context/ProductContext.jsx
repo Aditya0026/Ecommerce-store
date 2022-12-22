@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import reducer from '../Reducer/reducer';
-import { fetchProduct } from '../serverCalls/cartCalls/fetchProducts';
+import { fetchProducts } from '../serverCalls/cartCalls/fetchProducts';
 import { reducerConstants } from '../Reducer/reducerConstants';
 
 const ProductContext = React.createContext();
@@ -17,7 +17,7 @@ const ProductsContextProvider = ({ children }) => {
     reducer,
     initialState
   );
-  const { data, isLoading, isError } = useQuery('products', fetchProduct);
+  const { data, isLoading, isError } = useQuery('products', fetchProducts);
   const productsArray = data?.data.products;
   console.log(data, 'DATATTAAA');
 
