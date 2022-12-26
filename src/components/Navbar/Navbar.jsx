@@ -39,7 +39,7 @@ export const Navbar = () => {
           <button
             aria-label="cart-icon"
             type="submit"
-            className="flex"
+            className="flex btn_1"
             onClick={() => {
               setToggleCartModal(!toggleCartModal);
             }}

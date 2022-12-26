@@ -29,7 +29,7 @@ export const SingleProduct = () => {
             <option>Large</option>
           </select>
           <input type="number" value="1" />
-          <button>Add To Cart</button>
+          <button className="btn_cart">Add To Cart</button>
           <h4>Product Details</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
