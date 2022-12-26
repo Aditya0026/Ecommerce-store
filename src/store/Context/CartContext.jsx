@@ -5,7 +5,7 @@ import {
   AddToCart,
   DeleteFromCart,
   UpdateCart,
-} from '../serverCalls/index.server';
+} from '../../serverCalls/index.server';
 
 const CartContext = React.createContext();
 

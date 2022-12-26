@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 import {
   useLocalStorageGetItem,
   useLocalStorageSetItem,
-} from '../CustomHooks/CustomHooks';
-import { FetchCart, FetchWishlist } from '../serverCalls/index.server';
+} from '../../CustomHooks/CustomHooks';
+import { FetchCart, FetchWishlist } from '../../serverCalls/index.server';
 import { useCartContext } from './CartContext';
 import { useWishlistContext } from './WishlistContext';
 

@@ -6,7 +6,7 @@ import {
   AiOutlineHeart,
 } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../../Context/CartContext';
+import { useCartContext } from '../../store/Context/CartContext';
 import { Cart } from '../Cart/Cart';
 
 export const Navbar = () => {

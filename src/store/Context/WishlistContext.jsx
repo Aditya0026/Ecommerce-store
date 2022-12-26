@@ -1,6 +1,9 @@
 import React from 'react';
 import { useMutation } from 'react-query';
-import { AddToWishlist, RemoveFromWishlist } from '../serverCalls/index.server';
+import {
+  AddToWishlist,
+  RemoveFromWishlist,
+} from '../../serverCalls/index.server';
 
 const WishlistContext = React.createContext();
 

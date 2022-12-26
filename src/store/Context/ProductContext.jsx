@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import reducer from '../Reducer/reducer';
-import { fetchProducts } from '../serverCalls/cartCalls/fetchProducts';
+import { reducer } from '../Reducer/reducer';
+import { fetchProducts } from '../../serverCalls/cartCalls/fetchProducts';
 import { reducerConstants } from '../Reducer/reducerConstants';
 
 const ProductContext = React.createContext();

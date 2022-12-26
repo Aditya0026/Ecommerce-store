@@ -146,3 +146,16 @@ button h3 {
   transform: scale(1.1);
   color: var(--clr-grey-1);
 }
+.add_cart {
+  font-size: 2rem;
+  width: 19px;
+  border-radius: 50px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #e8f6ea;
+  font-weight: 500;
+  color: #088178;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}

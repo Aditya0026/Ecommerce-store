@@ -4,7 +4,7 @@ import { AiFillStar } from 'react-icons/ai';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
 import { Features } from '../../components/Content/Features';
-import { useProductContext } from '../../Context/ProductContext';
+import { useProductContext } from '../../store/Context/ProductContext';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { SingleProduct } from '../SingleProduct/SingleProduct';
 

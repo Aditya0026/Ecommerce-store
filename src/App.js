@@ -5,7 +5,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { Footer } from './components/Footer/Footer';
 import { ShopPage } from './pages/ShopPage/ShopPage';
 import { LoginPage } from './pages/LoginPage/LoginPage';
-import { useProductContext } from './Context/ProductContext';
+import { useProductContext } from './store/Context/ProductContext';
 import { SignUp } from './pages/SignUpPage/SignUp';
 import { AboutPage } from './pages/AboutPage/AboutPage';
 import { Wishlist } from './pages/Wishlist/Wishlist';

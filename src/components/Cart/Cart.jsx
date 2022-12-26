@@ -9,12 +9,12 @@ import {
   useCartContext,
   useDeleteFromCart,
   useUpdateCart,
-} from '../../Context/CartContext';
-import { useAuthContext } from '../../Context/AuthContext';
+} from '../../store/Context/CartContext';
+import { useAuthContext } from '../../store/Context/AuthContext';
 import {
   useAddToWishlist,
   useWishlistContext,
-} from '../../Context/WishlistContext';
+} from '../../store/Context/WishlistContext';
 import {
   cartTotalPrice,
   formatPrice,

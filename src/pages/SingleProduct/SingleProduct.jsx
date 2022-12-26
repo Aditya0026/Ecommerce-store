@@ -1,6 +1,6 @@
 import React from 'react';
 import './SingleProduct.css';
-import { useProductContext } from '../../Context/ProductContext';
+import { useProductContext } from '../../store/Context/ProductContext';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 
 export const SingleProduct = () => {
