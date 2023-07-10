@@ -12,6 +12,9 @@ footer .col {
   align-items: flex-start;
   margin-bottom: 0.75em;
 }
+.footer-img {
+  width: 200px;
+}
 
 footer .col h3 {
   font-size: 2em;

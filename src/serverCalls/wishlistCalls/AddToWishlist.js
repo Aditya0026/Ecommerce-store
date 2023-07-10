@@ -2,7 +2,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useLocalStorageGetItem } from '../../CustomHooks/CustomHooks';
 
-export function AddToWishlist(data) {
+export async function AddToWishlist(data) {
   const userToken = useLocalStorageGetItem('user-token');
   try {
     const res = axios.post(
@@ -14,6 +14,7 @@ export function AddToWishlist(data) {
         },
       }
     );
+
     return res;
   } catch (error) {
     toast.error(`${error.message}`);

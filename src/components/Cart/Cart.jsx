@@ -4,7 +4,6 @@ import { FiX } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import { Counter } from './sub-components/Counter';
 import { useCloseOnClickOutside } from '../../CustomHooks/CustomHooks';
-import './cart.css';
 import {
   useCartContext,
   useDeleteFromCart,
@@ -36,6 +35,7 @@ export const Cart = ({ toggleCartModal, setToggleCartModal }) => {
   const { mutate: changeQuantityCart } = useUpdateCart();
 
   //   const { displayRazorpay } = usePaymentIntegration();
+  console.log(cart, 'product');
   useCloseOnClickOutside(cartRef, setToggleCartModal);
   return (
     <>
@@ -66,7 +66,7 @@ export const Cart = ({ toggleCartModal, setToggleCartModal }) => {
                     />
                     <div>
                       <h4 className="cart-item-name">{product.productTitle}</h4>
-                      <p className="cart-item-price">₹{product.productPrice}</p>
+                      <p className="cart-item-price">₹{product.price}</p>
                       <button
                         aria-label="remove-from-cart-icon"
                         onClick={() =>

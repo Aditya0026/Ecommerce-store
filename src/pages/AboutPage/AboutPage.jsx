@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './AboutPage.css';
 
 export const AboutPage = () => (
+  //   useEffect(() => {
+  //     window.scrollTo(0, 0);
+  //   }, []);
   <>
     <section className="section about-page">
       <div className="title center text-uppercase">

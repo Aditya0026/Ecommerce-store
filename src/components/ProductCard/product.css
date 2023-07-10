@@ -112,6 +112,7 @@ button h3 {
   letter-spacing: 0.1rem;
   font-size: 1.3rem;
   color: var(--clr-grey-3);
+  font-size: 1.5rem;
 }
 
 .cart-item-remove-btn {
@@ -122,19 +123,11 @@ button h3 {
   cursor: pointer;
 }
 
-.cart-item-amount {
-  margin-bottom: 0;
-  font-weight: 500;
-  text-align: center;
-  color: var(--clr-grey-3);
-  line-height: 1;
-}
-
 .cart-item-increase-btn,
 .cart-item-decrease-btn {
   background: transparent;
   border-color: transparent;
-  color: var(--clr-primary-5);
+  color: #088178;
   cursor: pointer;
   font-size: 0.85rem;
   padding: 0.25rem;

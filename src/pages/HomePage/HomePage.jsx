@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BsCartFill } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
 import './HomePage.css';
@@ -9,6 +9,9 @@ import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { SingleProduct } from '../SingleProduct/SingleProduct';
 
 export const HomePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const {
     productCurrentState: { productsList },
   } = useProductContext();
@@ -27,15 +30,15 @@ export const HomePage = () => {
       <section className="product pad">
         <h2>Featured Products</h2>
         <p>Summer Collection New Morden Design</p>
-        <Link to="/singleproduct">
-          <div className="pro">
-            {productsList
-              .filter((product) => product.isFeatured)
-              .map((product) => (
-                <ProductCard product={product} />
-              ))}
-          </div>
-        </Link>
+        {/* <Link to="/singleproduct"> */}
+        <div className="pro">
+          {productsList
+            .filter((product) => product.isFeatured)
+            .map((product) => (
+              <ProductCard product={product} />
+            ))}
+        </div>
+        {/* </Link> */}
       </section>
 
       <section className="banner-1 pad">

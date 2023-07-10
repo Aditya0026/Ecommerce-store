@@ -19,8 +19,8 @@ function isChecked(property, listItem, productStates) {
 const getDynamicPriceRange = (productData) =>
   productData.reduce(
     (priceRange, productCard) => [
-      Math.min(productCard.productPrice, priceRange[0]),
-      Math.max(productCard.productPrice, priceRange[1]),
+      Math.min(productCard.price, priceRange[0]),
+      Math.max(productCard.price, priceRange[1]),
     ],
     [Number.MAX_SAFE_INTEGER, 0]
   );
@@ -35,7 +35,7 @@ function isPresentInState(item, state) {
 
 /* eslint-disable no-param-reassign */
 const cartTotalPrice = (cart) =>
-  cart.reduce((acc, item) => (acc += item.productPrice * item.qty), 0);
+  cart.reduce((acc, item) => (acc += item.price * item.qty), 0);
 
 const formatPrice = (price) => {
   const formattedPrice = new Intl.NumberFormat('en-IN', {
@@ -44,6 +44,7 @@ const formatPrice = (price) => {
   }).format(price);
   return formattedPrice;
 };
+
 export {
   ErrorFallback,
   isChecked,

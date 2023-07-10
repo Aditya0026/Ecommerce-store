@@ -164,14 +164,15 @@ body::-webkit-scrollbar-track {
   background: var(--clr-grey-9);
 }
 
-@media only screen and (max-width: 37.5em) {
+/* @media only screen and (max-width: 37.5em) {
   html {
     font-size: 56.5%;
   }
-}
+} */
 
 img {
   object-fit: cover;
+  width: 290px;
 }
 button {
   background: none;
@@ -216,8 +217,7 @@ a {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 50em) {
-  h1,
+/* h1,
   h2,
   h3,
   h4 {
@@ -225,20 +225,6 @@ a {
     text-transform: capitalize;
     line-height: 1.25;
     /* margin-bottom: 1.2rem; */
-  }
-  h1 {
-    font-size: 4.4rem;
-  }
-  h2 {
-    font-size: 3.2rem;
-  }
-  h3 {
-    font-size: 2rem;
-  }
-  h4 {
-    font-size: 1.4rem;
-  }
-}
 
 .btn-grey {
   color: var(--clr-primary-5);

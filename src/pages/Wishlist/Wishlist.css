@@ -13,6 +13,7 @@
 .page-hero-title {
   font-weight: 500;
 }
+
 .products {
   display: grid;
   /* width: 90%; */
@@ -34,4 +35,8 @@
 
 .products.more-products {
   place-content: center;
+}
+
+.wishlist {
+  display: none;
 }

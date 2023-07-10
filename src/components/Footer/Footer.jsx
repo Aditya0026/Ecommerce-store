@@ -1,5 +1,4 @@
 import React from 'react';
-import './Footer.css';
 import { FaFacebookF, FaPinterestP } from 'react-icons/fa';
 import { AiFillYoutube, AiOutlineTwitter } from 'react-icons/ai';
 import { BsInstagram } from 'react-icons/bs';
@@ -61,17 +60,20 @@ export const Footer = () => (
         <p>From App Store or Play Store</p>
         <div className="row">
           <img
+            className="footer-img"
             style={{ marginRight: '0.5rem' }}
             src="https://res.cloudinary.com/ddlpde95c/image/upload/v1671171291/app_ypnown.jpg"
             alt=""
           />
           <img
+            className="footer-img "
             src="https://res.cloudinary.com/ddlpde95c/image/upload/v1671171291/play_uhhg6v.jpg"
             alt=""
           />
         </div>
         <p>Secured Payment Gateways</p>
         <img
+          className="footer-img "
           src="https://res.cloudinary.com/ddlpde95c/image/upload/v1671171291/pay_abqdex.png"
           alt=""
         />

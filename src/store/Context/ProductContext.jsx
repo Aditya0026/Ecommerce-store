@@ -3,13 +3,15 @@ import { useQuery } from 'react-query';
 import { reducer } from '../Reducer/reducer';
 import { fetchProducts } from '../../serverCalls/cartCalls/fetchProducts';
 import { reducerConstants } from '../Reducer/reducerConstants';
+import { getMaxPrice } from '../../components/Filters/Filters.data';
 
 const ProductContext = React.createContext();
 
 const initialState = {
   sortBy: '',
-  filterBy: { categories: [], color: [] },
+  filterBy: { categories: [] },
   productsList: [],
+  price: getMaxPrice(),
 };
 
 const ProductsContextProvider = ({ children }) => {
@@ -19,7 +21,6 @@ const ProductsContextProvider = ({ children }) => {
   );
   const { data, isLoading, isError } = useQuery('products', fetchProducts);
   const productsArray = data?.data.products;
-  console.log(data, 'DATATTAAA');
 
   React.useEffect(() => {
     if (productsArray) {

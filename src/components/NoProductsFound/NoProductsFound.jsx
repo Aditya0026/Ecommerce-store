@@ -1,5 +1,4 @@
 import React from 'react';
-import './NoProductsFound.css';
 
 export const NoProductsFound = () => (
   <>

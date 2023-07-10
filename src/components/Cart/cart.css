@@ -122,6 +122,7 @@ button h3 {
   text-align: center;
   color: var(--clr-grey-3);
   line-height: 1;
+  font-size: 1.5rem;
 }
 
 .cart-item-increase-btn,

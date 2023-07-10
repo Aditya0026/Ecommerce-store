@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './LoginPage.css';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -16,6 +16,9 @@ import { useInput } from '../../CustomHooks/CustomHooks';
 import { FetchCart } from '../../serverCalls/cartCalls/FetchCart';
 
 export const LoginPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { user, setUser, encodedToken, login, setLogin } = useAuthContext();
 
   const { cart, setCart } = useCartContext();

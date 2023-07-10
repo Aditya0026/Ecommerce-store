@@ -1,20 +1,27 @@
 import React from 'react';
 import { AiFillStar, AiOutlineHeart } from 'react-icons/ai';
-import { BsCartFill } from 'react-icons/bs';
+import { BsFillHeartFill, BsCartFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useProductContext } from '../../store/Context/ProductContext';
-import './product.css';
 import { useAuthContext } from '../../store/Context/AuthContext';
 import {
   useAddToWishlist,
   useDeleteFromWishlist,
   useWishlistContext,
 } from '../../store/Context/WishlistContext';
-
+import { useAddToCart, useCartContext } from '../../store/Context/CartContext';
 import { isPresentInState } from '../../Utils/utils';
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, children }) => {
   const { user } = useAuthContext();
   const [wishlist, setWishlist] = useWishlistContext();
+  const { cart, setCart, setToggleCartModal } = useCartContext();
+  const { mutate: addToWishlist, isLoading: isLoadingWishlist } =
+    useAddToWishlist();
+  const { mutate: removeFromWishlist, isLoading: isDeletingWishlist } =
+    useDeleteFromWishlist();
+  const { mutate: addToCart, isLoading: isLoadingCart } = useAddToCart();
   const ratingsArray = [];
   for (let i = 1; i <= product.rating; i += 1) {
     ratingsArray.push({
@@ -24,16 +31,107 @@ export const ProductCard = ({ product }) => {
   return (
     <>
       <div className="pro1">
-        <img src={product.imgUrl} alt="" />
-        <AiOutlineHeart className="fav" />
+        <Link to={`${product._id}`}>
+          <img src={product.imgUrl} alt="" />
+        </Link>
+        {/* <AiOutlineHeart className="fav" /> */}
+        {user.id ? (
+          isPresentInState(product, wishlist) ? (
+            <button
+              disabled={isDeletingWishlist}
+              onClick={() => {
+                removeFromWishlist(product, {
+                  onSuccess: ({ data: { wishlist: wishlistData } }) => {
+                    setWishlist(wishlistData);
+                  },
+                  onError: () => {
+                    toast.error('error');
+                  },
+                });
+              }}
+              type="submit"
+              className="card-wishlist border-none"
+            >
+              <BsFillHeartFill className="icon-svg card-heart added" />
+            </button>
+          ) : (
+            <button
+              disabled={isLoadingWishlist}
+              onClick={() =>
+                addToWishlist(product, {
+                  onSuccess: ({ data: { wishlist: wishlistData } }) => {
+                    setWishlist(wishlistData);
+                  },
+                })
+              }
+              type="submit"
+              className="card-wishlist border-none"
+            >
+              <BsFillHeartFill className={`icon-svg card-heart `} />
+            </button>
+          )
+        ) : (
+          <Link
+            aria-label="login-icon"
+            to="/login"
+            className="card-wishlist border-none"
+          >
+            <button
+              className="border-none"
+              onClick={() => toast.info('Please Log In First')}
+              type="button"
+            >
+              <BsFillHeartFill className={`icon-svg card-heart `} />
+            </button>
+          </Link>
+        )}
         <div className="des">
           <span>{product.productTitle}</span>
           <h5>{product.productDesc}</h5>
           <div className="star" />
-          <h4>{product.price}</h4>
+          <h4>RS.{product.price}</h4>
           {ratingsArray.map((item) => item.icon)}
         </div>
-        <BsCartFill className="add_cart" />
+        {/* <BsCartFill className="add_cart" /> */}
+        {user.id ? (
+          isPresentInState(product, cart) ? (
+            <button
+              onClick={() => setToggleCartModal((prev) => !prev)}
+              type="button"
+              className="btn btn-squared m-top-small"
+            >
+              Go to Cart
+            </button>
+          ) : (
+            <button
+              onClick={() =>
+                addToCart(product, {
+                  onSuccess: ({ data: { cart: cartData } }) => {
+                    setCart(cartData);
+                  },
+                  onError: (error) => {
+                    toast.error(error.message);
+                  },
+                })
+              }
+              disabled={isLoadingCart}
+              type="submit"
+              className="btn btn-squared m-top-small"
+            >
+              {children || 'Add to Cart'}
+            </button>
+          )
+        ) : (
+          <Link to="/login" className="">
+            <button
+              onClick={() => toast.info('Please Log In First')}
+              type="submit"
+              className="btn btn-squared m-top-small"
+            >
+              Add to Cart
+            </button>
+          </Link>
+        )}
       </div>
     </>
   );

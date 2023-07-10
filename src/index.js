@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.css';
+
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { createRoot } from 'react-dom/client';
 import App from './App';

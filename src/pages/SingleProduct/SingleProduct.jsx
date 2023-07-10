@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './SingleProduct.css';
-import { useProductContext } from '../../store/Context/ProductContext';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { useParams } from 'react-router';
+import { useProductContext } from '../../store/index.store';
+
 import { ProductCard } from '../../components/ProductCard/ProductCard';
+import { NoProductsFound } from '../../components/NoProductsFound/NoProductsFound';
+import { useAddToCart, useCartContext } from '../../store/Context/CartContext';
+import { isPresentInState } from '../../Utils/utils';
+import { useAuthContext } from '../../store/Context/AuthContext';
+import {
+  useAddToWishlist,
+  useDeleteFromWishlist,
+  useWishlistContext,
+} from '../../store/Context/WishlistContext';
 
 export const SingleProduct = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const { productID } = useParams();
+  const { productCurrentState } = useProductContext();
+  const singleProduct = productCurrentState?.productsList?.find(
+    (product) => product._id === productID
+  );
+  console.log(singleProduct, productCurrentState, 'jcbjdcb');
+  const { mutate: addToCart, isLoading: isLoadingCart } = useAddToCart();
+  const { user } = useAuthContext();
+  const { cart, setCart, setToggleCartModal } = useCartContext();
+  const [wishlist, setWishlist] = useWishlistContext();
+  const { mutate: addToWishlist, isLoading: isLoadingWishlist } =
+    useAddToWishlist();
+  const { mutate: removeFromWishlist, isLoading: isDeletingWishlist } =
+    useDeleteFromWishlist();
   const {
     productCurrentState: { productsList },
   } = useProductContext();
@@ -11,16 +42,12 @@ export const SingleProduct = () => {
     <>
       <section className="detail">
         <div className="left">
-          <img
-            src="https://res.cloudinary.com/ddlpde95c/image/upload/v1671171238/f1_o1a1lf.jpg"
-            width="100%"
-            alt=""
-          />
+          <img src={singleProduct?.imgUrl} width="100%" alt="" />
         </div>
         <div className="right">
           <h6>Home / T-Shirt</h6>
           <h4>Men's Fashion T Shirt</h4>
-          <h2>800 RS/-</h2>
+          <h2>{singleProduct?.price} RS/-</h2>
           <select>
             <option>Select Size</option>
             <option>XL</option>
@@ -29,6 +56,7 @@ export const SingleProduct = () => {
             <option>Large</option>
           </select>
           <input type="number" value="1" />
+
           <button className="btn_cart">Add To Cart</button>
           <h4>Product Details</h4>
           <p>
