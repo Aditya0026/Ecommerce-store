@@ -1,0 +1,34 @@
+.no-products {
+  width: 100%;
+}
+.img {
+  height: 50rem;
+  object-fit: cover;
+  width: 45%;
+}
+.section-center {
+  width: 90vw;
+  max-width: var(--max-width);
+}
+.page-hero-title {
+  font-weight: 500;
+}
+.single-product-info {
+  padding: 7rem;
+}
+.section-center {
+  margin-top: 10rem;
+}
+@media only screen and (max-width: 28.125em) {
+  .products {
+    padding: 0.5rem 1rem;
+    grid-template-columns: 1fr;
+  }
+  .single-product-title {
+    font-size: 2rem;
+  }
+}
+
+.products.more-products {
+  place-content: center;
+}

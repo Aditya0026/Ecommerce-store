@@ -1,0 +1,68 @@
+.detail {
+  display: grid;
+  margin-top: 2.2rem;
+  grid-template-columns: 1fr 2fr;
+}
+
+.detail .left img {
+  width: 100%;
+  margin-right: 5rem;
+  padding: 50px;
+}
+
+.detail .right {
+  margin-top: 2.2rem;
+  /* border: 1px solid black; */
+  padding: 3rem;
+}
+.detail .right h6 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.detail .right h4 {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+}
+.detail .right h2 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.detail .right select {
+  padding: 5px 10px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.detail .right input {
+  width: 5rem;
+  height: 4.5rem;
+  padding-left: 1.7rem;
+  font-size: 1.8rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.detail .right input:focus {
+  outline: none;
+}
+
+.btn_cart {
+  background-color: #088178;
+  color: #fff;
+  border: none;
+  padding: 14px 50px 14px 45px;
+  border-radius: 0.65rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.detail .right p {
+  line-height: 2.75rem;
+  font-size: 2rem;
+}
+
+.padding {
+  margin-top: 5rem;
+}
