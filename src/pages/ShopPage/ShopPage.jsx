@@ -10,6 +10,7 @@ import {
   getPricesData,
   getSortedData,
 } from '../../components/Filters/FilterOperations';
+import { FilterPhone } from '../../components/Filters/FilterPhone/FilterPhone';
 
 export const ShopPage = () => {
   const { productCurrentState } = useProductContext();
@@ -52,57 +53,19 @@ export const ShopPage = () => {
       </div>
       <section className="product pad product1">
         <div className="sidebar-container">
-          <div className="sidebar">
-            {/* <div className="filter">
-              <h3>Filters</h3>
-              <h4>Sort By</h4>
-              <div className="check1">
-                <input
-                  type="radio"
-                  className="a"
-                  id=""
-                  name="choice"
-                  value="Price - High to Low"
-                />
-                <label htmlFor="checkbox-1"> Price - High to Low</label>
-                <br />
-              </div>
-              <div className="check1">
-                <input
-                  type="radio"
-                  className="a"
-                  id=""
-                  name="choice"
-                  value="Price - Low to High"
-                />
-                <label htmlFor="checkbox-2"> Price - Low to High</label>
-                <br />
-              </div>
-              <div className="check1">
-                <input
-                  type="radio"
-                  className="a"
-                  id=""
-                  name="choice"
-                  value="Latest"
-                />
-                <label htmlFor="checkbox-3"> Latest</label>
-                <br />
-              </div>
-            </div> */}
+          <div className="">
             <FiltersDesktop productState={productCurrentState} />
           </div>
         </div>
         <div className="pro">
-          {/* {productCurrentState.productsList.map((product) => (
-            <ProductCard product={product} />
-          ))} */}
-
           {results.map((product) => (
             <ProductCard product={product} />
           ))}
         </div>
       </section>
+      <div className="FilterPhone">
+        <FilterPhone />
+      </div>
     </>
   );
 };

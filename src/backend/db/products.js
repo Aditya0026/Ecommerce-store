@@ -19,7 +19,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171238/f2_zklymn.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Zara',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 800,
     isFeatured: true,
@@ -32,7 +32,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171238/f3_qtsmve.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Allen Solly',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 600,
     isFeatured: true,
@@ -45,7 +45,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171239/f4_jywe6v.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'H&M',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 650,
     isFeatured: true,
@@ -58,7 +58,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171238/f5_xjwvr0.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Allen Solly',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 799,
     isFeatured: true,
@@ -71,7 +71,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171239/f6_qtz6tu.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'H&M',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 599,
     isFeatured: true,
@@ -84,7 +84,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171239/n8_e63qb8.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Zara',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 1999,
     isFeatured: true,
@@ -110,7 +110,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171237/n1_ielk1c.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Allen Solly',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 750,
     isFeatured: false,
@@ -123,7 +123,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171237/n4_jr9zbb.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Zara',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 450,
     isFeatured: false,
@@ -149,7 +149,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171237/n5_o3thee.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Allen Solly',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 899,
     isFeatured: false,
@@ -162,7 +162,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171238/n2_fndph9.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Zara',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 650,
     isFeatured: false,
@@ -188,7 +188,7 @@ export const products = [
     imgUrl:
       'https://res.cloudinary.com/ddlpde95c/image/upload/v1671171238/f8_jfxjo8.jpg',
     alt: '',
-    productTitle: 'adidas',
+    productTitle: 'Allen Solly',
     productDesc: 'Cartoon Astronant T-Shirts',
     price: 790,
     isFeatured: false,
