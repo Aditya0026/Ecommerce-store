@@ -5,6 +5,7 @@ import {
   AiOutlineHeart,
 } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { Squash as Hamburger } from 'hamburger-react';
 import { useCartContext } from '../../store/Context/CartContext';
 import { Cart } from '../Cart/Cart';
 import { useWishlistContext } from '../../store/Context/WishlistContext';
@@ -13,19 +14,29 @@ import { Sidebar } from '../Sidebar/Sidebar';
 export const Navbar = () => {
   const { cart, setCart, toggleCartModal, setToggleCartModal } =
     useCartContext();
-  const [toggleSearchModal, setToggleSearchModal] = React.useState(false);
   const [wishlist, setWishlist] = useWishlistContext();
+  const [showSidebar, setShowSidebar] = React.useState(false);
 
   return (
     <>
       <section className="header">
-        <div className="side">
-          <Sidebar />
+        <div className="humburger-menu">
+          <button
+            onClick={() => setShowSidebar(!showSidebar)}
+            type="submit"
+            id="btnHamburger"
+            href="#"
+            aria-label="menu-icon"
+            className={`nav-toggle hide-for-desktop m-right-small border-none ${
+              showSidebar ? 'open' : ''
+            }`}
+          >
+            <Hamburger size={25} />
+          </button>
+          <Link to="/">
+            <h2 className="logo">Apex</h2>
+          </Link>
         </div>
-        <Link to="/">
-          <h2 className="logo">Shopify</h2>
-        </Link>
-
         <div className="nav-right">
           <ul className="navbar">
             <li>
@@ -68,6 +79,7 @@ export const Navbar = () => {
         toggleCartModal={toggleCartModal}
         setToggleCartModal={setToggleCartModal}
       />
+      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
     </>
   );
 };

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { useParams } from 'react-router';
 import { useProductContext } from '../../store/index.store';
-
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { NoProductsFound } from '../../components/NoProductsFound/NoProductsFound';
 import { useAddToCart, useCartContext } from '../../store/Context/CartContext';
@@ -17,7 +16,7 @@ import {
   useWishlistContext,
 } from '../../store/Context/WishlistContext';
 
-export const SingleProduct = () => {
+export const SingleProduct = ({ product, children }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -26,7 +25,6 @@ export const SingleProduct = () => {
   const singleProduct = productCurrentState?.productsList?.find(
     (product) => product._id === productID
   );
-  console.log(singleProduct, productCurrentState, 'jcbjdcb');
   const { mutate: addToCart, isLoading: isLoadingCart } = useAddToCart();
   const { user } = useAuthContext();
   const { cart, setCart, setToggleCartModal } = useCartContext();
@@ -40,12 +38,19 @@ export const SingleProduct = () => {
   } = useProductContext();
   return (
     <>
+      <section className="page-hero">
+        <div className="section-center">
+          <h3 className="page-hero-title">
+            Home
+            <span className="title-slash"> /</span> {singleProduct.productTitle}
+          </h3>
+        </div>
+      </section>
       <section className="detail">
         <div className="left">
-          <img src={singleProduct?.imgUrl} width="100%" alt="" />
+          <img src={singleProduct?.imgUrl} alt="" />
         </div>
         <div className="right">
-          <h6>Home / T-Shirt</h6>
           <h4>Men's Fashion T Shirt</h4>
           <h2>{singleProduct?.price} RS/-</h2>
           <select>
@@ -68,17 +73,17 @@ export const SingleProduct = () => {
         </div>
       </section>
 
-      <section className="product pad padding">
+      {/* <section className="product pad padding">
         <h2>Similar Products</h2>
         <p>Summer Collection New Morden Design</p>
         <div className="pro">
           {productsList
-            .filter((product) => product.isFeatured)
+            .filter((product) => product.latest)
             .map((product) => (
               <ProductCard product={product} />
             ))}
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

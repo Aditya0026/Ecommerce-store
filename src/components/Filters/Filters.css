@@ -83,3 +83,12 @@ body {
   font-size: 2em;
   color: aquamarine;
 }
+
+@media (max-width: 560px) {
+  .product-Categories {
+    display: flex;
+  }
+  .filter {
+    width: 17rem;
+  }
+}
