@@ -16,6 +16,10 @@ footer .col {
   width: 200px;
 }
 
+.footer-padding {
+  padding: 40px 80px;
+}
+
 footer .col h3 {
   font-size: 2em;
   margin-bottom: 0.7em;
@@ -50,4 +54,10 @@ footer .install img {
 footer .follow i:hover,
 footer a:hover {
   color: var(var(--clr-green-light) ;);
+}
+
+@media (max-width: 700px) {
+  .footer-padding {
+    padding: 20px 40px;
+  }
 }

@@ -72,7 +72,7 @@ export const FiltersDesktop = ({ productState }) => {
               />
               <label
                 key={category}
-                style={{ textTransform: 'capitalize' }}
+                className="m-left-smallest"
                 htmlFor={category}
               >
                 {category}

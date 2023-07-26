@@ -5,7 +5,6 @@ import { pageLinks } from '../Navbar/Navbar.data';
 
 const Sidebar = ({ showSidebar, setShowSidebar, navRef }) => {
   const sidebarModalRef = React.useRef(null);
-  // useCloseOnClickOutside(sidebarModalRef, setShowSidebar);
   return (
     <aside className={`sidebar-modal ${showSidebar ? 'open' : ''}`}>
       <div
