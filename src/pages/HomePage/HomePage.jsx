@@ -27,10 +27,9 @@ export const HomePage = () => {
         </Link>
       </section>
       <Features />
-      <section className="product pad">
+      <section className="product padding">
         <h2>Featured Products</h2>
         <p>Summer Collection New Morden Design</p>
-        {/* <Link to="/singleproduct"> */}
         <div className="pro">
           {productsList
             .filter((product) => product.isFeatured)
@@ -38,7 +37,6 @@ export const HomePage = () => {
               <ProductCard product={product} />
             ))}
         </div>
-        {/* </Link> */}
       </section>
 
       <section className="banner-1 pad">

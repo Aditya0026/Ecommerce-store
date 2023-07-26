@@ -42,48 +42,114 @@ export const SingleProduct = ({ product, children }) => {
         <div className="section-center">
           <h3 className="page-hero-title">
             Home
-            <span className="title-slash"> /</span> {singleProduct.productTitle}
+            <span className="title-slash"> /</span> {singleProduct.productDesc}
           </h3>
         </div>
       </section>
       <section className="detail">
         <div className="left">
-          <img src={singleProduct?.imgUrl} alt="" />
+          <img
+            className="single-product-img "
+            src={singleProduct?.imgUrl}
+            alt=""
+          />
         </div>
         <div className="right">
-          <h4>Men's Fashion T Shirt</h4>
-          <h2>{singleProduct?.price} RS/-</h2>
-          <select>
-            <option>Select Size</option>
-            <option>XL</option>
-            <option>XXL</option>
-            <option>Small</option>
-            <option>Large</option>
-          </select>
-          <input type="number" value="1" />
+          <h2 className="single-product-title">{singleProduct.productDesc}</h2>
+          <p className="single-product-company text-slanted">{`by ${singleProduct.productTitle}`}</p>
+          <h4 className="single-product-price">₹{singleProduct?.price}</h4>
+          <h4 className="">Product Details:-</h4>
+          <p>{singleProduct.detail}</p>
+          <div className="single-product-btns flex-al-centerr">
+            {user.id ? (
+              isPresentInState(singleProduct, cart) ? (
+                <button
+                  onClick={() => setToggleCartModal((prev) => !prev)}
+                  type="button"
+                  className="btn_cart"
+                >
+                  Go to Cart
+                </button>
+              ) : (
+                <button
+                  onClick={() =>
+                    addToCart(singleProduct, {
+                      onSuccess: ({ data: { cart: cartData } }) => {
+                        setCart(cartData);
+                      },
+                      onError: (error) => {
+                        toast.error(error.message);
+                      },
+                    })
+                  }
+                  disabled={isLoadingCart}
+                  type="submit"
+                  className="btn_cart"
+                >
+                  Add to Cart
+                </button>
+              )
+            ) : (
+              <Link to="/login" className="">
+                <button
+                  onClick={() => toast.info('Please Log In First')}
+                  type="submit"
+                  className="btn_cart"
+                >
+                  Add to Cart
+                </button>
+              </Link>
+            )}
 
-          <button className="btn_cart">Add To Cart</button>
-          <h4>Product Details</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-            tenetur, expedita incidunt minus architecto commodi, nihil sequi
-            error obcaecati nesciunt numquam voluptates facilis laboriosam
-            itaque, repudiandae id aliquid soluta dicta.
-          </p>
+            {user.id ? (
+              isPresentInState(singleProduct, wishlist) ? (
+                <button
+                  disabled={isDeletingWishlist}
+                  onClick={() => {
+                    removeFromWishlist(singleProduct, {
+                      onSuccess: ({ data: { wishlist: wishlistData } }) => {
+                        setWishlist(wishlistData);
+                      },
+                      onError: () => {
+                        toast.error('error');
+                      },
+                    });
+                  }}
+                  type="submit"
+                  className="btn_wishlist "
+                >
+                  <AiFillHeart className="black" />
+                </button>
+              ) : (
+                <button
+                  disabled={isLoadingWishlist}
+                  onClick={() =>
+                    addToWishlist(singleProduct, {
+                      onSuccess: ({ data: { wishlist: wishlistData } }) => {
+                        setWishlist(wishlistData);
+                      },
+                    })
+                  }
+                  type="submit"
+                  className="btn_wishlist"
+                >
+                  <AiOutlineHeart className="" />
+                </button>
+              )
+            ) : (
+              <Link to="/login" className="btn_wishlist">
+                <button
+                  className=""
+                  onClick={() => toast.info('Please Log In First')}
+                  type="button"
+                >
+                  <AiOutlineHeart />
+                </button>
+              </Link>
+            )}
+          </div>
         </div>
       </section>
-
-      {/* <section className="product pad padding">
-        <h2>Similar Products</h2>
-        <p>Summer Collection New Morden Design</p>
-        <div className="pro">
-          {productsList
-            .filter((product) => product.latest)
-            .map((product) => (
-              <ProductCard product={product} />
-            ))}
-        </div>
-      </section> */}
     </>
   );
 };

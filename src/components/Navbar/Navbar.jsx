@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   AiOutlineUser,
   AiOutlineShoppingCart,
   AiOutlineHeart,
 } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { BsCartDash, BsPerson } from 'react-icons/bs';
 import { Squash as Hamburger } from 'hamburger-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCartContext } from '../../store/Context/CartContext';
 import { Cart } from '../Cart/Cart';
 import { useWishlistContext } from '../../store/Context/WishlistContext';
 import { Sidebar } from '../Sidebar/Sidebar';
+import { logOutUser, useAuthContext } from '../../store/Context/AuthContext';
 
 export const Navbar = () => {
+  const { login, setUser, setLogin, user } = useAuthContext();
   const { cart, setCart, toggleCartModal, setToggleCartModal } =
     useCartContext();
   const [wishlist, setWishlist] = useWishlistContext();
   const [showSidebar, setShowSidebar] = React.useState(false);
+  const navigate = useNavigate();
+  const [isOpen, setOpen] = useState(false);
 
   return (
     <>
@@ -31,7 +36,7 @@ export const Navbar = () => {
               showSidebar ? 'open' : ''
             }`}
           >
-            <Hamburger size={25} />
+            <Hamburger size={25} toggle={setOpen} />
           </button>
           <Link to="/">
             <h2 className="logo">Apex</h2>
@@ -65,14 +70,31 @@ export const Navbar = () => {
               setToggleCartModal(!toggleCartModal);
             }}
           >
-            <AiOutlineShoppingCart className="icon-link" />
+            <BsCartDash className="icon-link" />
             {cart?.length ? (
               <span className="nav-link-span cart-span">{cart?.length}</span>
             ) : null}
           </button>
-          <Link to="/login" className="flex">
-            <AiOutlineUser className="icon-link" />
-          </Link>
+          {login ? (
+            <button
+              aria-label="logout-icon"
+              type="button"
+              onClick={() => {
+                logOutUser(setUser, setCart, setWishlist, setLogin, navigate);
+              }}
+              className="flex-al-center border-none logout-btn"
+            >
+              LOG OUT
+            </button>
+          ) : (
+            <Link
+              aria-label="login-icon"
+              to="/login"
+              className="flex-al-center border-none"
+            >
+              <AiOutlineUser className="icon-link" />
+            </Link>
+          )}
         </div>
       </section>
       <Cart

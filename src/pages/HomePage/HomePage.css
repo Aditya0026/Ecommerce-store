@@ -1,10 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Spartan', sans-serif;
-}
-
 /* hero section */
 .hero {
   background-image: url('https://res.cloudinary.com/ddlpde95c/image/upload/v1671710229/hero4_oyc7j9.png');
@@ -23,11 +16,13 @@
   font-size: 1.75em;
 }
 .hero h2 {
-  font-size: 4em;
+  font-size: 3em;
+  font-weight: 600;
 }
 .hero h1 {
   color: #088178;
   padding-bottom: 10px;
+  font-weight: 600;
 }
 .hero p {
   padding-bottom: 14px;
@@ -48,7 +43,9 @@
 .pad {
   padding: 40px 80px;
 }
-
+.padding {
+  padding: 40px 170px;
+}
 .product {
   text-align: center;
 }
@@ -62,6 +59,7 @@
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
   margin: 15px 0;
   transition: 0.2s ease;
+  height: 45rem;
   /* position: relative; */
 }
 
@@ -255,5 +253,27 @@
   }
   .hero p {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1350px) {
+  .banner-1 {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .product h2 {
+    font-size: 2.3rem;
+    margin-left: -2.5rem;
+  }
+  .product p {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero h4 h2 h1 p {
+    display: none;
   }
 }

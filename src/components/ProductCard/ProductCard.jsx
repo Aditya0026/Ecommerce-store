@@ -92,7 +92,6 @@ export const ProductCard = ({ product, children }) => {
           <h4>RS.{product.price}</h4>
           {ratingsArray.map((item) => item.icon)}
         </div>
-        {/* <BsCartFill className="add_cart" /> */}
         {user.id ? (
           isPresentInState(product, cart) ? (
             <button

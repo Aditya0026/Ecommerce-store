@@ -71,11 +71,11 @@
 }
 
 .cart-span {
-  right: 4.9rem;
+  right: 12.2rem;
   top: 2.2rem;
 }
 .wishlist-span {
-  right: 8rem;
+  right: 15.2rem;
   top: 2.1rem;
 }
 
@@ -98,7 +98,12 @@
 .side {
   display: none;
 }
-
+.logout-btn {
+  border: 1px solid #088178;
+  border-radius: 0.7rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
 /* Media Queries  */
 @media (max-width: 665px) {
   .logo {
@@ -124,4 +129,14 @@
   .hide-for-desktop {
     display: block;
   }
+  .cart-span {
+    right: 11.6rem;
+    top: 2.7rem;
+  }
+  .wishlist-span {
+    right: 15.6rem;
+    top: 2.7rem;
+  }
+}
+@media (max-width: 400px) {
 }

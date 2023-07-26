@@ -3,10 +3,15 @@ import React, { useEffect } from 'react';
 import './AboutPage.css';
 
 export const AboutPage = () => (
-  //   useEffect(() => {
-  //     window.scrollTo(0, 0);
-  //   }, []);
   <>
+    <section className="page-hero">
+      <div className="section-center">
+        <h3 className="page-hero-title">
+          Home
+          <span className="title-slash"> /</span> About
+        </h3>
+      </div>
+    </section>
     <section className="section about-page">
       <div className="title center text-uppercase">
         <h2>our history</h2>
