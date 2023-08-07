@@ -5,9 +5,9 @@ import { BsInstagram } from 'react-icons/bs';
 
 export const Footer = () => (
   <>
-    <footer className="footer pad">
+    <footer className="footer footer-padding">
       <div className="col">
-        <h3>Shopify</h3>
+        <h3>Apex</h3>
         <h4>Contact</h4>
         <p>
           <strong>Address:</strong> 562 Wellington Road Street 32, Mumbai

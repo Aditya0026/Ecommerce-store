@@ -5,7 +5,20 @@
   z-index: 1;
 }
 /* Note: Carttt */
-
+.span {
+  color: #606063;
+}
+.h5 {
+  padding-top: 6px;
+  color: #1a1a1a;
+  font-size: 1em;
+}
+.price {
+  color: #088178;
+  font-size: 1em;
+  font-weight: 700;
+  padding-top: 6px;
+}
 .cart-overlay {
   position: fixed;
   top: 0;
@@ -17,6 +30,10 @@
   opacity: 0;
   pointer-events: none;
   z-index: -100;
+}
+.product_img {
+  border-radius: 20px;
+  width: 100%;
 }
 
 .cart-overlay.show {
@@ -102,7 +119,10 @@ button h3 {
   border-radius: var(--radius);
   outline: 1px solid var(--clr-grey-1);
 }
-
+.des {
+  text-align: left;
+  padding: 10px 0;
+}
 .cart-item-name {
   margin-bottom: 0.15rem;
 }

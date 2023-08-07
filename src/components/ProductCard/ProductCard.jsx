@@ -30,11 +30,10 @@ export const ProductCard = ({ product, children }) => {
   }
   return (
     <>
-      <div className="pro1">
+      <div className="product pro1">
         <Link to={`${product._id}`}>
-          <img src={product.imgUrl} alt="" />
+          <img className="product_img" src={product.imgUrl} alt="" />
         </Link>
-        {/* <AiOutlineHeart className="fav" /> */}
         {user.id ? (
           isPresentInState(product, wishlist) ? (
             <button
@@ -86,10 +85,10 @@ export const ProductCard = ({ product, children }) => {
           </Link>
         )}
         <div className="des">
-          <span>{product.productTitle}</span>
-          <h5>{product.productDesc}</h5>
+          <span className="span">{product.productTitle}</span>
+          <h5 className="h5">{product.productDesc}</h5>
           <div className="star" />
-          <h4>RS.{product.price}</h4>
+          <h4 className="price">RS.{product.price}</h4>
           {ratingsArray.map((item) => item.icon)}
         </div>
         {user.id ? (
@@ -97,7 +96,7 @@ export const ProductCard = ({ product, children }) => {
             <button
               onClick={() => setToggleCartModal((prev) => !prev)}
               type="button"
-              className="btn btn-squared m-top-small"
+              className="btn btn-squared m-top-small button"
             >
               Go to Cart
             </button>

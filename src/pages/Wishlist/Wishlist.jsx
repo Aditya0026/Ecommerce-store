@@ -3,6 +3,7 @@ import { NoProductsFound } from '../../components/NoProductsFound/NoProductsFoun
 import { useWishlistContext } from '../../store/Context/WishlistContext';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import './Wishlist.css';
+import { SingleProduct } from '../SingleProduct/SingleProduct';
 
 export const Wishlist = () => {
   const [wishlist] = useWishlistContext();
@@ -23,7 +24,7 @@ export const Wishlist = () => {
         >
           {wishlist?.length === 0 && <NoProductsFound />}
           {wishlist?.map((product) => (
-            <ProductCard className="pro2" key={product._id} product={product} />
+            <ProductCard key={product._id} product={product} />
           ))}
         </div>
       </section>

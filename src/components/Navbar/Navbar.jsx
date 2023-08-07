@@ -32,7 +32,7 @@ export const Navbar = () => {
             id="btnHamburger"
             href="#"
             aria-label="menu-icon"
-            className={`nav-toggle hide-for-desktop m-right-small border-none ${
+            className={`nav-toggle hide-for-desktop ${
               showSidebar ? 'open' : ''
             }`}
           >

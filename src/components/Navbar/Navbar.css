@@ -24,7 +24,7 @@
 }
 
 .logo {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 3.5rem;
 }
 .myreact-icons {
@@ -137,6 +137,4 @@
     right: 15.6rem;
     top: 2.7rem;
   }
-}
-@media (max-width: 400px) {
 }

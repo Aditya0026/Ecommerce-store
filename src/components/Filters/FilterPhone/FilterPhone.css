@@ -131,12 +131,28 @@
 @media (max-width: 410px) {
   .phone-filter .phone-filter-btn {
     font-size: 1.7rem;
-    padding: 3rem 8rem;
+    padding: 2rem 8rem;
   }
 }
-@media (max-width: 350px) {
+@media (max-width: 370px) {
   .phone-filter .phone-filter-btn {
     font-size: 1.7rem;
     padding: 2rem 7rem;
+  }
+}
+@media (max-width: 340px) {
+  .phone-filter .phone-filter-btn {
+    font-size: 1.7rem;
+    padding: 2rem 7rem;
+  }
+  .pad {
+    padding: auto;
+  }
+}
+
+@media (max-width: 340px) {
+  .phone-filter .phone-filter-btn {
+    font-size: 1.7rem;
+    padding: 2rem 6rem;
   }
 }
