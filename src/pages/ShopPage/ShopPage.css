@@ -33,11 +33,6 @@ body {
   gap: 20px;
 }
 
-.sidebar {
-  /* border: 1px solid black; */
-  margin-left: -20px;
-  /* position: relative; */
-}
 .product-Categories {
   padding: 30px 15px;
   width: 180px;
@@ -91,10 +86,38 @@ body {
   .hero1 {
     font-size: 2rem;
   }
+  .productHeading h2 {
+    font-size: 3rem;
+  }
+  .hero1 h2 {
+    font-size: 3rem;
+  }
+  ,
+  .hero1 p {
+    font-size: 1.2rem;
+  }
+  .productHeading p {
+    font-size: 1.2rem;
+  }
 }
 
 @media (min-width: 560px) {
   .FilterPhone {
     display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .productHeading h2 {
+    font-size: 2.5rem;
+  }
+  .hero1 h2 {
+    font-size: 2.5rem;
+  }
+  .hero1 p {
+    font-size: 1.2rem;
+  }
+  .productHeading p {
+    font-size: 1.2rem;
   }
 }

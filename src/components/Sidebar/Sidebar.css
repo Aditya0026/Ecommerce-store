@@ -26,6 +26,7 @@
   color: white;
   transition: var(--transition-medium);
   transform: translate(-100%);
+  margin-left: 0;
 }
 .sidebar.open {
   transform: translate(0);

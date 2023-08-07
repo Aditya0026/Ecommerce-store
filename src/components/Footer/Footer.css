@@ -55,7 +55,9 @@ footer .follow i:hover,
 footer a:hover {
   color: var(var(--clr-green-light) ;);
 }
-
+.col a:hover {
+  color: #088178;
+}
 @media (max-width: 700px) {
   .footer-padding {
     padding: 20px 40px;

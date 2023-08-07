@@ -1,5 +1,4 @@
 .error-page {
-  font-family: 'Poppins';
   height: 100vh;
   background: #121212;
   padding: 1em;
@@ -18,7 +17,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-20deg);
-  font-family: 'Eczar';
   font-size: 60vmax;
   color: #282828;
   letter-spacing: 0.025em;

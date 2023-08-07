@@ -13,8 +13,8 @@ export const AboutPage = () => (
       </div>
     </section>
     <section className="section about-page">
-      <div className="title center text-uppercase">
-        <h2>our history</h2>
+      <div className=" center text-uppercase">
+        <h2 className="title">our history</h2>
       </div>
       <p className="about-text">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat

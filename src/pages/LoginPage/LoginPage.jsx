@@ -107,7 +107,7 @@ export const LoginPage = () => {
               />
               Remember Me
             </label>
-            <a href="" style={{ fontSize: '1.3rem' }}>
+            <a href="" className="form-button">
               Forgot Password?
             </a>
           </div>
@@ -121,7 +121,7 @@ export const LoginPage = () => {
             type="submit"
             className="btn btn-squared btn-outline-secondary w-100 spacing-medium weight-600"
           >
-            Login
+            LOGIN
           </button>
           <button
             onClick={() => {
@@ -136,21 +136,17 @@ export const LoginPage = () => {
             type="button"
             className="btn"
           >
-            Guest Login
+            GUEST LOGIN
           </button>
         </div>
         <div className="form-footer form-group flex">
-          <p className="">
-            <span style={{ fontSize: '1.6rem' }}>
-              <i className="fa fa-regular fa-face-frown" />
-            </span>
+          <p>
             Don't have an account ?
             <Link
-              style={{ color: '#088178', fontSize: '1.5rem' }}
               to="/signup"
               id="form-signin-link"
               href="#"
-              className="link form-footer-link"
+              className="link form-footer-link a"
             >
               Create one
             </Link>

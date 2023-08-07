@@ -35,6 +35,7 @@
 
 .products.more-products {
   place-content: center;
+  grid-template-rows: auto;
 }
 
 .wishlist {
