@@ -31,7 +31,7 @@ export const ProductCard = ({ product, children }) => {
   return (
     <>
       <div className="product pro1">
-        <Link to={`${product._id}`}>
+        <Link to={`/products/${product._id}`}>
           <img className="product_img" src={product.imgUrl} alt="" />
         </Link>
         {user.id ? (

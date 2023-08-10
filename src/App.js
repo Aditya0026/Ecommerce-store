@@ -36,7 +36,9 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/:productID" element={<SingleProduct />} />
-          <Route path="/shop/:productID" element={<SingleProduct />} />
+          {/* <Route path="/shop/:productID" element={<SingleProduct />} /> */}
+          <Route path="/products/:productID" element={<SingleProduct />} />
+
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
