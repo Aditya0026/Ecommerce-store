@@ -28,15 +28,15 @@
   padding-bottom: 14px;
 }
 .hero button {
-  background-color: transparent;
-  color: #088178;
-  /* background-color: #ffdbac; */
   border: 1px solid black;
   padding: 14px 80px 14px 65px;
   border-radius: 0.5rem;
   cursor: pointer;
   font-weight: 600;
   font-size: 1em;
+  background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 /* default padding */
@@ -61,11 +61,6 @@
   transition: 0.2s ease;
   height: 45rem;
   /* position: relative; */
-}
-
-.pro img {
-  border-radius: 20px;
-  width: 100%;
 }
 
 .product .pro1:hover {
